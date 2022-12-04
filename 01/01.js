@@ -19,7 +19,14 @@ const run = inputFile => {
   const inputString = fs.readFileSync(inputFile, "utf-8");
   const caloriesList = inputString.split("\n");
   const totalCaloriesByElf = _getTotalCaloriesByElf(caloriesList);
-  return Math.max(...totalCaloriesByElf);
+  const sortedTotalCaloriesByElf = totalCaloriesByElf.sort((a, b) => b - a);
+  console.log(sortedTotalCaloriesByElf);
+  const topOne = sortedTotalCaloriesByElf[0];
+  const totalTopThree =
+    sortedTotalCaloriesByElf[0] +
+    sortedTotalCaloriesByElf[1] +
+    sortedTotalCaloriesByElf[2];
+  console.log(totalTopThree);
 };
 
 export default run;
